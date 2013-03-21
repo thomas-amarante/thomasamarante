@@ -11,6 +11,7 @@ public class ListaFactory {
 		
 		Lista<T> resultado = null;
 		
+		resultado = new ListaDeMetodos<T>();
 		//implementar
 		
 		return resultado;
