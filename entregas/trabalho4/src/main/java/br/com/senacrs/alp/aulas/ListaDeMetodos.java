@@ -1,8 +1,9 @@
 package br.com.senacrs.alp.aulas;
 
-public class ListaDaAula<T> 
-	implements Lista<T> {
-
+public class ListaDeMetodos<T> implements Lista<T> {
+	
+	private Nodo<T> inicio = new Nodo<T>();
+	
 	@Override
 	public void adicionarFinal(T valor) {
 		// TODO Auto-generated method stub
@@ -41,8 +42,18 @@ public class ListaDaAula<T>
 
 	@Override
 	public int obterTamanho() {
-		// TODO Auto-generated method stub
-		return 0;
+		int resultado = 0;
+
+        Nodo<T> nodo = null;
+        nodo = inicio;       
+
+        while (nodo.proximo != null) {
+
+            nodo = nodo.proximo;
+
+            resultado++;
+        }
+		return resultado;
 	}
 
 	@Override
