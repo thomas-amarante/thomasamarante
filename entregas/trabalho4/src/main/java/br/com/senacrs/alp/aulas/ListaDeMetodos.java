@@ -6,18 +6,21 @@ public class ListaDeMetodos<T> implements Lista<T> {
 	
 	@Override
 	public void adicionarFinal(T valor) {
+		adicionarPosicao(obterTamanho(), valor);
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void adicionarInicio(T valor) {
+		adicionarPosicao(0, valor);
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void adicionarPosicao(int posicao, T valor) {
+		
 		// TODO Auto-generated method stub
 		
 	}
