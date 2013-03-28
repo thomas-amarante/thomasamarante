@@ -2,108 +2,129 @@ package br.com.senacrs.alp.aulas;
 
 public class MinhaLista<T> implements Lista<T> {
 
-	private Nodo<T> inicio = new Nodo<T>();
+private Nodo<T> inicio = new Nodo<T>();
 
-	@Override
-	public void adicionarFinal(T valor) {
+@Override
+public void adicionarFinal(T valor) {
 
-		adicionarPosicao(obterTamanho(), valor);
+adicionarPosicao(obterTamanho(), valor);
 
-	}
+}
 
-	@Override
-	public void adicionarInicio(T valor) {
+@Override
+public void adicionarInicio(T valor) {
 
-		adicionarPosicao(0, valor);
+adicionarPosicao(0, valor);
 
-	}
+}
 
-	@Override
-	public void adicionarPosicao(int posicao, T valor) {
+@Override
+public void adicionarPosicao(int posicao, T valor) {
 
-		Nodo<T> nodo =	null;
-		Nodo<T> novo =	new Nodo<T>();
-		nodo = obterNodoPosicao(posicao - 1);
-		novo.proximo = nodo.proximo;
-		nodo.proximo = novo;
-		novo.conteudo = valor;
+Nodo<T> anterior = null;
+Nodo<T> novo = null;
 
-	}
+if(valor == null){
+throw new IllegalArgumentException();
+}
+if(posicao < 0){
+throw new IllegalArgumentException();
+}
+if(posicao > obterTamanho()){
+throw new IllegalArgumentException();
+}
+novo = new Nodo<T>();
+novo.conteudo = valor;
+anterior = obterNodoPosicao(posicao -1);
+novo.proximo = anterior.proximo;
+anterior.proximo = novo;
 
-	@Override
-	public T obterPrimeiro() {
+}
 
-		Nodo<T> nodo =	null;
-		nodo = obterNodoPosicao(0);
-		return nodo.conteudo;
+@Override
+public T obterPrimeiro() {
 
-	}
+return obterPosicao(0);
 
-	@Override
-	public T obterUltimo() {
+}
 
-		int tamanho = obterTamanho();
-		T resultado = obterPosicao(tamanho - 1);
-		return resultado;
+@Override
+public T obterUltimo() {
 
-	}
+return obterPosicao(obterTamanho()-1);
 
-	@Override
-	public T obterPosicao(int posicao) {
+}
 
-		Nodo<T> nodo =	null;
-		nodo = obterNodoPosicao(posicao);
-		return nodo.conteudo;
+@Override
+public T obterPosicao(int posicao) {
 
-	}
+Nodo<T> nodo = null;
+if(posicao < 0){
+throw new IllegalArgumentException();
+}
+if(posicao >= obterTamanho()){
+throw new IllegalArgumentException();
+}
+nodo = obterNodoPosicao(posicao);
+return nodo.conteudo;
 
-	@Override
-	public int obterTamanho() {
+}
 
-		int resultado = 0;
-		Nodo<T> nodo =	null;
-		nodo =	inicio;
-		while (nodo.proximo != null) {
-			nodo = nodo.proximo;
-			resultado++;
+@Override
+public int obterTamanho() {
 
-		}
+int resultado = 0;
+Nodo<T> nodo = null;
+nodo = inicio;
+while (nodo.proximo != null) {
+nodo = nodo.proximo;
+resultado++;
 
-		return resultado;
+}
 
-	}
+return resultado;
 
-	@Override
-	public T removerPosicao(int posicao) {
+}
 
-		Nodo<T> nodo =	null;
-		Nodo<T> anterior =	new Nodo<T>();
-		nodo = obterNodoPosicao(posicao);
-		anterior = obterNodoPosicao(posicao - 1);
-		anterior.proximo = nodo.proximo;
-		nodo.proximo = null;
-		T resultado = nodo.conteudo;
-		return resultado;
-		
-	}
+@Override
+public T removerPosicao(int posicao) {
 
-	@Override
-	public void esvaziar() {
+Nodo<T> nodo = null;
+Nodo<T> anterior = new Nodo<T>();
+if(posicao < 0){
+throw new IllegalArgumentException();
+}
+if(posicao >= obterTamanho()){
+throw new IllegalArgumentException();
+}
+nodo = obterNodoPosicao(posicao);
+anterior = obterNodoPosicao(posicao - 1);
+anterior.proximo = nodo.proximo;
+nodo.proximo = null;
+T resultado = nodo.conteudo;
+return resultado;
 
-		inicio.proximo = null;
+}
 
-	}
+@Override
+public void esvaziar() {
 
-	private Nodo<T> obterNodoPosicao(int posicao) {
+inicio.proximo = null;
 
-		Nodo<T> nodo = inicio;
-		int indice = -1;
-		while (posicao != indice) {
-			nodo = nodo.proximo;
-			indice++;
-		}
-		return nodo;
+}
 
-	}
+private Nodo<T> obterNodoPosicao(int posicao) {
+
+Nodo<T> resultado = null;
+int indice = 0;
+resultado = inicio;
+indice = -1;
+while (indice < posicao) {
+resultado = resultado.proximo;
+indice++;
+}
+return resultado;
+
+}
 
 }
