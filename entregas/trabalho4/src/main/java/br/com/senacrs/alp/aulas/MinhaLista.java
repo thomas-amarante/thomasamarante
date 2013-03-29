@@ -7,7 +7,7 @@ private Nodo<T> inicio = new Nodo<T>();
 @Override
 public void adicionarFinal(T valor) {
 
-adicionarPosicao(obterTamanho(), valor);
+ adicionarPosicao(obterTamanho(), valor);
 
 }
 
