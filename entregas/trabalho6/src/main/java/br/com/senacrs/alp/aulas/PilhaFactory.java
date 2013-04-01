@@ -11,7 +11,7 @@ public class PilhaFactory {
 		
 		Pilha<T> resultado = null;
 		
-		//implementar
+		resultado = new MinhaPilha<T>();
 		
 		return resultado;
 	}
