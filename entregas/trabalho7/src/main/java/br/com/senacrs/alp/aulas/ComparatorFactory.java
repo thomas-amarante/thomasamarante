@@ -13,7 +13,7 @@ public class ComparatorFactory {
 		
 		Comparator<Integer> resultado = null;
 		
-		//implementar
+		
 		
 		return resultado;
 	}
