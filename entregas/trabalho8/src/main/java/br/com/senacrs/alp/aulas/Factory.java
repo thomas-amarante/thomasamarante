@@ -2,16 +2,22 @@ package br.com.senacrs.alp.aulas;
 
 public class Factory {
 	
+
 	private static final Factory instancia = new Factory();
 	
 	private Factory() {
+		
 	}
 	
 	public Funcionario criarFuncionario(Departamento departamento, String nome, double salario) {
 	
+		if(departamento == null){
+			throw new IllegalArgumentException();
+		}
+		
 		Funcionario resultado = null;
 		
-		//implementar
+		resultado = new MeuFuncionario(departamento.getEmpresa(), departamento, nome, salario);
 		
 		return resultado;
 	}
@@ -20,7 +26,7 @@ public class Factory {
 	
 		Departamento resultado = null;
 		
-		//implementar
+		resultado = new MeuDepartamento(empresa, nome);
 		
 		return resultado;
 	}
@@ -29,7 +35,7 @@ public class Factory {
 	
 		Empresa resultado = null;
 		
-		//implementar
+		resultado = new MinhaEmpresa(nome);
 		
 		return resultado;
 	}
