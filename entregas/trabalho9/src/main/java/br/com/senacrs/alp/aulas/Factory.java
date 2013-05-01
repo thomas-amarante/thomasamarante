@@ -11,7 +11,7 @@ public class Factory {
 	
 		EmissorMensagens resultado = null;
 		
-		resultado = new MeuEmissorMensagem();
+		resultado = new MeuEmissor(arquivoEntrada);
 		
 		return resultado;
 	}
