@@ -1,3 +1,0 @@
-root_dir = ./html
-port = a54321
-error_dir = ./html/error/
