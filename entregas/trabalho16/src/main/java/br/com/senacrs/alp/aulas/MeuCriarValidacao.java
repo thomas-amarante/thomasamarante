@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
-public class MinhaValidacao implements ObterRequisicaoGet {
+public class MeuCriarValidacao implements ObterRequisicaoGet {
 
 	private static final String INDEX_HTML = "index.html";
 	private static final String ERROR_404_HTML = "error_404.html";
@@ -26,7 +26,7 @@ public class MinhaValidacao implements ObterRequisicaoGet {
 	private ArquivoConfiguracao config;
 
 
-	public MinhaValidacao(ArquivoConfiguracao config) {
+	public MeuCriarValidacao(ArquivoConfiguracao config) {
 		this.config = config;
 	}
 
